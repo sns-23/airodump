@@ -216,11 +216,11 @@ int airodump_loop(pcap_t *handle)
     }
     
     delete_all_frm();
-
     pthread_mutex_destroy(&info_list_lock);
     return 0;
 
 out_error:
+    delete_all_frm();
     pthread_mutex_destroy(&info_list_lock);
     return -1;
 }
